@@ -243,16 +243,7 @@ description:
         HTTP сервер обработки запросов
     ]]
     local hostname = 'localhost' ---<<<!!!!! Вставить dns имя или ip своей виртуалки
-    --[[
-        Утилиты для декодирования значений GET параметров url строки
-    ]]
-    local hex_to_char = function(x)
-        return string.char(tonumber(x, 16))
-    end
 
-    local unescape = function(url)
-        return url:gsub("%%(%x%x)", hex_to_char)
-    end
 
     --[[
         HTML форма для создания короткой ссылки
