@@ -49,7 +49,7 @@ description:
     ```
 
     ``` bash
-    htop -tree
+    htop --tree
     # f2 (ctrl+f2, click "Setup")
     # Display options -> Show Custom Thread Names
     # f3 (ctrl+f3, click "Search") tarantool <enter>
@@ -338,7 +338,7 @@ tarantool
         yaml = require('yaml')
         xlog = require('xlog')
 
-        for _, transaction in xlog.pairs('00000000000000000000.xlog') do
+        for _, transaction in xlog.pairs('00000000000000000000.xlog') do -- также для файлов .snap
             print(yaml.encode(transaction))
         end
         ```
@@ -479,7 +479,7 @@ tarantool
 - Запуск произошел с ближайшего снапшота и с применением всех последующих `xlog` файлов
 
 
-### Вычисление размера спейса в оперативной памяти (Пример)
+### Вычисление размера спейса в оперативной памяти (Задача со зведочкой)
 
 - Просуммировать размер спейса и размер всех его индексов
 
@@ -605,7 +605,7 @@ Duplicate key exists in unique index "pkey"
     - Удалим файлы *.snap, *.xlog
     - `$`
     ```
-    rm -rf *.snap, *.xlog
+    rm -rf *.snap *.xlog
     ```
     - `$`
     ```
