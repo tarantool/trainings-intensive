@@ -118,11 +118,6 @@ description:
             { if_not_exists=true }
         )
 
-        box.schema.user.grant(
-            'rep', 'super', nil, nil,
-            { if_not_exists=true }
-        )
-
         --[[
             Создание схемы данных, индексов
         ]]
