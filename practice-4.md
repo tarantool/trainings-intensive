@@ -361,14 +361,14 @@ description:
     ```lua
     TT_INSTANCE_UUID=aaaaaaaa-0000-0000-0000-000000000001 \
     TT_INSTANCE_NAME=spb \
-    TT_HTTP_PORT=8080 \
+    TT_HTTP_PORT=8081 \
     tarantool init.lua
     ```
 - `moscow.sh`
     ```lua
     TT_INSTANCE_UUID=bbbbbbbb-0000-0000-0000-000000000001 \
     TT_INSTANCE_NAME=moscow \
-    TT_HTTP_PORT=8081 \
+    TT_HTTP_PORT=8082 \
     tarantool init.lua
     ```
 
@@ -396,14 +396,14 @@ description:
 
 ## Оно заработало?
 
-- Откроем браузер на `http://<ip_address>:8080/`
+- Откроем браузер на `http://<ip_address>:8081/`
     - Должна появится форма для ввода `url`
 - Введем любой `url`
 - Получим короткую ссылку
 - Перейдем по короткой ссылке
 - Или можно взять `curl`
    ```bash
-   curl -G "http://localhost:8080/"\
+   curl -G "http://localhost:8081/"\
      --data-urlencode "url=https://mail.ru"
    ```
    ```bash
@@ -419,7 +419,7 @@ description:
         Простой тест для проверки укорачивания ссылок
     ]]
     local host = '127.0.0.1'
-    local port = 8080
+    local port = 8081
 
     local source = 'https://google.com/?q=' .. tostring(os.time())
     local makeshort = 'http://' .. host .. ':' .. port .. '/?url='
@@ -438,6 +438,6 @@ description:
     ```
 - Примерный вывод
     ```bash
-    http://localhost:8080/XniDtG2jrBa23Q
+    http://localhost:8081/XniDtG2jrBa23Q
       ->    Https://google.com/?q=1607896232
     ```
