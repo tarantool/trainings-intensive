@@ -91,10 +91,10 @@ box.space.redirector:create_index(
 Для вставки новой ссылки сделаем сокращённый хеш ссылки:
 
 ```bash
-$ echo "https://go.mail.ru/search\?q\=tarantool" | shasum
+$ echo -n "https://go.mail.ru/search\?q\=tarantool" | shasum | head -c 10
 ```
 
-Возьмём первые 10 символов и создадим запрос на вставку
+Cоздадим запрос на вставку
 
 ```lua
 box.space.redirector:insert({"https://go.mail.ru/search?q=tarantool", "0f74d9fd75"})
@@ -120,7 +120,7 @@ box.space.redirector:insert({"https://mcs.mail.ru", "47bfb2302e"})
 box.space.redirector:insert({"https://github.com/tarantool/tarantool/", "c1ceeaaf95"})
 ```
 
-### Запрос ссылки по скарщенной части
+### Запрос ссылки по сокращенной части
 
 Для поиска оригинальной ссылки по сокращенной воспользуемся итератором по индексу:
 
